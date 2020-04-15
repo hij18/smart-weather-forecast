@@ -74,7 +74,7 @@ export default {
     actions: {
         'getWeatherFetch'({ commit }, { city = 'Moscow', units = 'metric' }) {
             const APIKey = '28c7d687accc7c75aabbc7fb71173feb';
-            const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=${units}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=${units}`;
             commit('showLoader', true);
             return fetch(url)
                 .then((res) => res.json())
@@ -84,7 +84,10 @@ export default {
                     commit('setCity', name);
                     commit('showLoader', false);
                 })
-                .catch(() => commit('setError', true));
+                .catch(() => {
+                    commit('setError', true);
+                    commit('showLoader', false);
+                });
         },
     },
 };
