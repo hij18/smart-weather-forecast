@@ -17,12 +17,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Step 1 - Create a temporary artifact bundle folder
-        run: |
-          mkdir bundle,
-          cd bundle
+        run: mkdir bundle
         
       - name: Step 2 - Install deps
         run: |
+          cd bundle,
+          pwd,
           echo Install deps,
           npm i
       
