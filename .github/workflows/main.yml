@@ -30,6 +30,7 @@ jobs:
         run: |
           echo Build bundle
           npm run build
+          ls -la
           cd ..
     
       - name: Step 4 - Use the Upload Artifact GitHub Action
