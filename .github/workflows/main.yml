@@ -21,15 +21,15 @@ jobs:
         
       - name: Step 2 - Install deps
         run: |
-          cd bundle,
-          pwd,
-          echo Install deps,
+          cd bundle
+          pwd
+          echo Install deps
           npm i
       
       - name: Step 3 - Create bundle
         run: |
-          echo Build bundle,
-          npm run build,
+          echo Build bundle
+          npm run build
           cd ..
     
       - name: Step 4 - Use the Upload Artifact GitHub Action
