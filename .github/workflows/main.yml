@@ -16,26 +16,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Step 1 - Create a temporary artifact bundle folder
-        run: |
-          ls -la
-          mkdir bundle
-          ls -la
-        
-      - name: Step 2 - Install deps
+      - name: Step 1 - Install deps
         run: |
           cd bundle
           pwd
           npm i
       
-      - name: Step 3 - Create bundle
+      - name: Step 2 - Create bundle
         run: |
           npm run build
-          ls -la
-          cd ..
     
-      - name: Step 4 - Use the Upload Artifact GitHub Action
+      - name: Step 3 - Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with: 
           name: game-bundle
-          path: bundle
+          path: dist
